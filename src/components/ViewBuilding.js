@@ -4,17 +4,14 @@ import React from 'react';
 class ViewBuilding extends React.Component {
 	render() {
 		const {selectedBuilding,data} = this.props;
-		const buildingName = this.props.data.selectedBuilding
-		const viewBuilding = selectedBuilding
 		const buildingList = data
-		.filter(id => {
+		.filter(directory => {
 			//remove names that do not match current filterText
-			return id.name.indexOf(buildingName) 		  })
+			return directory.id === selectedBuilding })
 		.map(directory => 
 			{
 			return (
-				<tr 
-				key={directory.id}>
+				<tr> 
 					<td> {directory.code} </td>
 					<td> {directory.name} </td>
 					<td> {directory.address} </td>
@@ -29,9 +26,6 @@ class ViewBuilding extends React.Component {
 					{' '}
 					<i>Click on a name to view more information</i>
 				</p>
-				{buildingName}
-				<p></p>
-				{viewBuilding}
 				<p></p>
 				{buildingList}
 			</div>
