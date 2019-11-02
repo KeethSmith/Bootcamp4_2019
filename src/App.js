@@ -3,7 +3,9 @@ import Search from './components/Search';
 import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
-import AddBuilding from './data/AddBuilding';
+import AddBuilding from './components/AddBuilding';
+import './App.css';
+import RemoveBuilding from './components/RemoveBuilding';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,9 +13,12 @@ class App extends React.Component {
     this.state = {
       filterText: '',
       selectedBuilding: 0,
-      newBuilding: ''
+      data: [],
+      newBuild: []
+      
     };
   }
+
 
   filterUpdate(value) {
     //Here you will need to set the filterText property of state to the value passed into this function
@@ -30,15 +35,24 @@ class App extends React.Component {
 
   }
 
-  formUpdate(newBuild) {
-    //console.log(newBuild)
-    //Here you will need to update the selectedBuilding property of state to the id passed into this function
-    this.setState({
-      newBuilding: newBuild
-      
+  handleSubmit() {
+    this.setState(()=>
+     {
+      this.props.data.push(this.state);  
+      //console.log(this.state.name);    
     })
-
   }
+
+  removeBuilding(sel) 
+  {
+      this.setState(()=>
+      {        
+        delete this.props.data[sel-1];
+        //data.push[]        
+      })
+  }
+  
+
 
   render() {
     
@@ -52,10 +66,7 @@ class App extends React.Component {
           filterText={this.state.filterText}
           filterUpdate = {this.filterUpdate.bind(this)}
         />
-        <AddBuilding
-          newBuilding={this.state.newBuilding}
-          formUpdate = {this.formUpdate.bind(this)}
-        />
+
         <main>
           <div className="row">
             <div className="column1">
@@ -80,6 +91,17 @@ class App extends React.Component {
               <ViewBuilding 
               data={this.props.data} 
               selectedBuilding={this.state.selectedBuilding} 
+              />
+              <RemoveBuilding
+              data={this.RemoveBuilding}
+              removeBuilding = {this.removeBuilding.bind(this)}
+              selectedBuilding = {this.state.selectedBuilding}
+              />
+
+              <AddBuilding
+                data={this.props.data}
+                handleSubmit={this.handleSubmit.bind(this)}
+                newBuild = {this.state.newBuild}
               />
             </div>
           </div>

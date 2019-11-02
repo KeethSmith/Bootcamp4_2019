@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 class ViewBuilding extends React.Component {
 	render() {
 		const {selectedBuilding,data} = this.props;
@@ -11,12 +12,39 @@ class ViewBuilding extends React.Component {
 		.map(directory => 
 			{
 			return (
-				<tr> 
-					<td> {directory.code} </td>
-					<td> {directory.name} </td>
-					<td> {directory.address} </td>
+				<div className={"viewBuilding"}>
+
+				<p></p>
+				<p></p>
 					
-				</tr>
+
+
+					<p> <b>Code:  </b>  {directory.code} </p>
+					<p> <b>Building Name:  </b>  {directory.name} </p>
+					
+					{ directory.address ? 
+					[
+						<div>
+						<p> <b>Address:  </b>  {directory.address} </p>
+						</div>
+					]
+					: null }
+
+					{ directory.coordinates ? 
+					[
+						<div>
+						<p> <b>Coordinates:  </b>  </p>
+						<p className="tab"> <b>Latitude:  </b>  {directory.coordinates.latitude} </p>
+						<p className="tab"> <b>Longitude:  </b>  {directory.coordinates.longitude} </p>
+						</div>
+					]
+					: null }
+
+
+
+					
+
+				</div>
 			);
 		});
 
@@ -26,6 +54,7 @@ class ViewBuilding extends React.Component {
 					{' '}
 					<i>Click on a name to view more information</i>
 				</p>
+
 				<p></p>
 				{buildingList}
 			</div>
