@@ -35,18 +35,20 @@ class App extends React.Component {
 
   }
 
-  handleSubmit() {
+  handleSubmit(newBuild) {
     this.setState(()=>
      {
-      this.props.data.push(this.state);  
-      //console.log(this.state.name);    
+      console.log(newBuild);
+      this.props.data.push(newBuild);  
+         
     })
   }
 
   removeBuilding(sel) 
   {
       this.setState(()=>
-      {        
+      {     
+        console.log(this.props.data.length);   
         delete this.props.data[sel-1];
         //data.push[]        
       })
@@ -97,6 +99,9 @@ class App extends React.Component {
               removeBuilding = {this.removeBuilding.bind(this)}
               selectedBuilding = {this.state.selectedBuilding}
               />
+              <br></br>
+              <br></br>
+              <br></br>
 
               <AddBuilding
                 data={this.props.data}

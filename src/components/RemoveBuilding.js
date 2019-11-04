@@ -23,7 +23,7 @@ class RemoveBuilding extends React.Component {
                 onClick={() =>   {
                     this.removeBuilding(selectedBuilding)
                     this.setState({ state: this.state });
-                    }}>
+                    }} className="center">
                     Remove Building
                 </button>
 			</div>

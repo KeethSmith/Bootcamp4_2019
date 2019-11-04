@@ -40,10 +40,6 @@ class ViewBuilding extends React.Component {
 					]
 					: null }
 
-
-
-					
-
 				</div>
 			);
 		});
