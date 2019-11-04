@@ -61,7 +61,7 @@ class App extends React.Component {
     return (
       <div className="bg">
         <div className="row">
-          <h1>UF Directory App</h1>
+          <h1 className="title">UF Directory App</h1>
         </div>
 
         <Search

@@ -1,13 +1,14 @@
 body {
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     padding: 40px;
     font-family: Arial;
 
   }
 .title {
-    color: rgb(255, 0, 0);
-    text-align: justify;
+    color: rgba(0, 68, 255, 0.849);
+    background-color: rgb(255, 123, 0);
+    text-align: Center;
     font-family: sans-serif;
     
 }
